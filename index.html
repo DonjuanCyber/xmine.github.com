@@ -241,13 +241,11 @@ header{
 </section>
 
 <script>
-async function getData(){
+async function getGoldPrice(){
   try{
-    // =====================
-    // EMAS
-    // =====================
     const goldRes = await fetch("https://api.gold-api.com/price/XAU");
     const goldData = await goldRes.json();
+
     let goldUSD = goldData.price;
 
     const rateRes = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
@@ -257,41 +255,32 @@ async function getData(){
     let goldIDR = goldUSD * usdToIdr;
     let perGram = goldIDR / 31.1035;
 
-    let goldFormatted = new Intl.NumberFormat("id-ID", {
+    let formatted = new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       maximumFractionDigits: 0
     }).format(perGram);
 
     document.getElementById("goldPrice").innerText =
-      goldFormatted + " / gram";
-
-    // =====================
-    // SOLAR (pakai crude oil sebagai indikator)
-    // =====================
-    const oilRes = await fetch("https://api.gold-api.com/price/XBR"); // Brent Oil
-    const oilData = await oilRes.json();
-    let oilUSD = oilData.price;
-
-    let oilIDR = oilUSD * usdToIdr;
-
-    let solarFormatted = new Intl.NumberFormat("id-ID", {
-      style: "currency",
-      currency: "IDR",
-      maximumFractionDigits: 0
-    }).format(oilIDR);
-
-    document.getElementById("solarPrice").innerText =
-      solarFormatted + " / barrel";
+      formatted + " / gram";
 
   }catch(err){
     document.getElementById("goldPrice").innerText = "Gagal load";
-    document.getElementById("solarPrice").innerText = "Gagal load";
   }
 }
 
-getData();
-setInterval(getData, 30000);
+// SOLAR INDUSTRI (STATIC REAL DATA)
+function setSolarPrice(){
+  document.getElementById("solarPrice").innerText =
+    "Rp 21.250 / liter"; // update manual tiap periode
+}
+
+// INIT
+getGoldPrice();
+setSolarPrice();
+
+// UPDATE
+setInterval(getGoldPrice, 30000);
 </script>
 
 </body>
