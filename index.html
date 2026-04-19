@@ -97,6 +97,18 @@ nav a:hover{
   padding:0 20px;
 }
 
+.hero-logo{
+  width:110px;
+  margin-bottom:25px;
+  filter:drop-shadow(0 0 20px rgba(212,175,55,0.6));
+  transition:0.4s;
+}
+
+.hero-logo:hover{
+  transform:scale(1.08);
+  filter:drop-shadow(0 0 35px rgba(212,175,55,0.9));
+}
+
 .hero h1{
   font-size:3.5rem;
   line-height:1.2;
@@ -139,7 +151,7 @@ nav a:hover{
   text-align:center;
 }
 
-/* GLASS CARD */
+/* CARDS */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -199,9 +211,15 @@ footer{
 
 <section class="hero">
   <div>
+
+    <!-- LOGO HERO -->
+    <img src="logo.png" alt="XMINE Logo" class="hero-logo">
+
     <h1>Next Generation <span>Trading Platform</span></h1>
     <p>Menghubungkan seller dan buyer secara langsung dengan sistem transparan, aman, dan berbasis teknologi modern.</p>
+
     <button class="btn">Mulai Sekarang</button>
+
   </div>
 </section>
 
