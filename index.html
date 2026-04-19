@@ -126,6 +126,16 @@ header{
   color:#fff;
 }
 
+  .solar-live{
+  margin-top:8px;
+  font-size:13px;
+  color:#4ade80; /* hijau biar beda dari emas */
+}
+
+#solarPrice{
+  font-weight:700;
+  color:#fff;
+}
 /* DESKTOP */
 @media(min-width:768px){
 
@@ -219,49 +229,69 @@ header{
       <p>Pasar internasional.</p>
 
       <p class="gold-live">
-        Harga emas: <span id="goldPrice">Loading...</span>
-      </p>
+  Harga emas: <span id="goldPrice">Loading...</span>
+</p>
+
+<p class="solar-live">
+  Harga solar global: <span id="solarPrice">Loading...</span>
+</p>
     </div>
 
   </div>
 </section>
 
 <script>
-async function getGoldPrice(){
+async function getData(){
   try{
-    // API baru (lebih stabil)
+    // =====================
+    // EMAS
+    // =====================
     const goldRes = await fetch("https://api.gold-api.com/price/XAU");
     const goldData = await goldRes.json();
-
     let goldUSD = goldData.price;
 
-    // Kurs USD → IDR
     const rateRes = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
     const rateData = await rateRes.json();
     let usdToIdr = rateData.rates.IDR;
 
-    // Konversi ke IDR
     let goldIDR = goldUSD * usdToIdr;
-
-    // ounce → gram
     let perGram = goldIDR / 31.1035;
 
-    let formatted = new Intl.NumberFormat("id-ID", {
+    let goldFormatted = new Intl.NumberFormat("id-ID", {
       style: "currency",
       currency: "IDR",
       maximumFractionDigits: 0
     }).format(perGram);
 
     document.getElementById("goldPrice").innerText =
-      formatted + " / gram";
+      goldFormatted + " / gram";
+
+    // =====================
+    // SOLAR (pakai crude oil sebagai indikator)
+    // =====================
+    const oilRes = await fetch("https://api.gold-api.com/price/XBR"); // Brent Oil
+    const oilData = await oilRes.json();
+    let oilUSD = oilData.price;
+
+    let oilIDR = oilUSD * usdToIdr;
+
+    let solarFormatted = new Intl.NumberFormat("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      maximumFractionDigits: 0
+    }).format(oilIDR);
+
+    document.getElementById("solarPrice").innerText =
+      solarFormatted + " / barrel";
 
   }catch(err){
     document.getElementById("goldPrice").innerText = "Gagal load";
+    document.getElementById("solarPrice").innerText = "Gagal load";
   }
 }
 
-getGoldPrice();
-setInterval(getGoldPrice, 30000);
+getData();
+setInterval(getData, 30000);
 </script>
 
 </body>
