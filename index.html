@@ -31,7 +31,6 @@ body{
 /* HEADER */
 header{
   display:flex;
-  justify-content:space-between;
   align-items:center;
   padding:15px 5%;
   background:rgba(0,0,0,0.5);
@@ -52,6 +51,16 @@ header{
   font-size:18px;
 }
 
+/* MARQUEE */
+.marquee-bar{
+  background:rgba(0,0,0,0.6);
+  color:#fff;
+  padding:10px 0;
+  font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  letter-spacing:0.5px;
+}
+
 /* HERO */
 .hero{
   display:flex;
@@ -65,8 +74,7 @@ header{
   width:150px;
   margin-bottom:20px;
   display:block;
-  margin-left:auto;
-  margin-right:auto;
+  margin:auto;
   filter:drop-shadow(0 0 20px rgba(212,175,55,0.6));
 }
 
@@ -114,28 +122,19 @@ header{
   border-radius:15px;
 }
 
-/* GOLD PRICE */
+/* PRICE */
 .gold-live{
   margin-top:10px;
   font-size:13px;
   color:var(--gold);
 }
 
-#goldPrice{
-  font-weight:700;
-  color:#fff;
-}
-
-  .solar-live{
+.solar-live{
   margin-top:8px;
   font-size:13px;
-  color:#4ade80; /* hijau biar beda dari emas */
+  color:#4ade80;
 }
 
-#solarPrice{
-  font-weight:700;
-  color:#fff;
-}
 /* DESKTOP */
 @media(min-width:768px){
 
@@ -159,7 +158,6 @@ header{
 
   .hero-logo{
     width:200px;
-    margin-bottom:30px;
   }
 
   .hero h1{
@@ -193,6 +191,11 @@ header{
     <h2>XMINE FROM SELLER TO BUYER</h2>
   </div>
 </header>
+
+<!-- MARQUEE -->
+<marquee direction="right" scrollamount="5" class="marquee-bar" id="marqueeText">
+  Loading data...
+</marquee>
 
 <section class="hero">
   <div>
@@ -229,12 +232,12 @@ header{
       <p>Pasar internasional.</p>
 
       <p class="gold-live">
-  Harga emas: <span id="goldPrice">Loading...</span>
-</p>
+        Harga emas: <span id="goldPrice">Loading...</span>
+      </p>
 
-<p class="solar-live">
-  Harga solar global: <span id="solarPrice">Loading...</span>
-</p>
+      <p class="solar-live">
+        Harga solar: <span id="solarPrice">Loading...</span>
+      </p>
     </div>
 
   </div>
@@ -264,22 +267,26 @@ async function getGoldPrice(){
     document.getElementById("goldPrice").innerText =
       formatted + " / gram";
 
+    // UPDATE MARQUEE
+    document.getElementById("marqueeText").innerText =
+      "Harga Emas: " + formatted + " / gram   |   Solar Industri: Rp 21.250 / liter";
+
   }catch(err){
     document.getElementById("goldPrice").innerText = "Gagal load";
   }
 }
 
-// SOLAR INDUSTRI (STATIC REAL DATA)
+// SOLAR INDUSTRI (STATIC)
 function setSolarPrice(){
   document.getElementById("solarPrice").innerText =
-    "Rp 21.250 / liter"; // update manual tiap periode
+    "Rp 21.250 / liter";
 }
 
 // INIT
 getGoldPrice();
 setSolarPrice();
 
-// UPDATE
+// AUTO UPDATE
 setInterval(getGoldPrice, 30000);
 </script>
 
