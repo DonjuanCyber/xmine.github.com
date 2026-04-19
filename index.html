@@ -228,7 +228,7 @@ header{
 <script>
 async function getGoldPrice(){
   try{
-    const goldRes = await fetch("https://api.metals.live/v1/spot/gold");
+    const goldRes = await fetch("https://api.gold-api.com/price/XAU");
     const goldData = await goldRes.json();
     let goldUSD = goldData[0].price;
 
