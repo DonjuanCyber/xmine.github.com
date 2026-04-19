@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>XMINE - From Seller To Buyer</title>
+<title>XMINE | Premium Trading Platform</title>
 
 <!-- Favicon -->
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico">
 
 <!-- Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
 <style>
 :root{
   --gold:#d4af37;
-  --dark:#0b1220;
-  --card:#111827;
+  --dark:#070d1a;
+  --glass:rgba(255,255,255,0.05);
 }
 
 *{
@@ -27,8 +27,22 @@
 }
 
 body{
-  background:var(--dark);
+  background: radial-gradient(circle at top,#0b1220,#000);
   color:#fff;
+  overflow-x:hidden;
+}
+
+/* GLOW BACKGROUND */
+body::before{
+  content:'';
+  position:fixed;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,var(--gold),transparent 70%);
+  top:-100px;
+  left:-100px;
+  opacity:0.15;
+  filter:blur(100px);
 }
 
 /* HEADER */
@@ -37,11 +51,12 @@ header{
   justify-content:space-between;
   align-items:center;
   padding:20px 10%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(12px);
   position:sticky;
   top:0;
-  z-index:100;
+  backdrop-filter:blur(15px);
+  background:rgba(0,0,0,0.4);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  z-index:999;
 }
 
 .logo{
@@ -51,10 +66,8 @@ header{
 }
 
 .logo img{
-  width:45px;
-  height:45px;
-  object-fit:contain;
-  filter:drop-shadow(0 0 6px rgba(212,175,55,0.6));
+  width:48px;
+  filter:drop-shadow(0 0 8px rgba(212,175,55,0.6));
 }
 
 .logo h2{
@@ -62,11 +75,11 @@ header{
   letter-spacing:1px;
 }
 
+/* NAV */
 nav a{
-  color:#fff;
-  text-decoration:none;
+  color:#ccc;
   margin:0 15px;
-  font-weight:500;
+  text-decoration:none;
   transition:0.3s;
 }
 
@@ -76,94 +89,91 @@ nav a:hover{
 
 /* HERO */
 .hero{
-  height:90vh;
+  height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:linear-gradient(180deg,#0b1220,#000);
+  padding:0 20px;
 }
 
 .hero h1{
-  font-size:3rem;
+  font-size:3.5rem;
+  line-height:1.2;
   margin-bottom:20px;
 }
 
 .hero span{
-  color:var(--gold);
+  background:linear-gradient(90deg,#fff,var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .hero p{
   max-width:600px;
   margin:auto;
-  margin-bottom:30px;
   color:#aaa;
+  margin-bottom:40px;
 }
 
 /* BUTTON */
 .btn{
-  padding:12px 28px;
-  background:var(--gold);
-  color:#000;
+  padding:14px 35px;
+  border-radius:40px;
   border:none;
-  border-radius:30px;
+  background:linear-gradient(135deg,var(--gold),#fff2b0);
+  color:#000;
   font-weight:600;
   cursor:pointer;
   transition:0.3s;
 }
 
 .btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px rgba(212,175,55,0.5);
+  transform:scale(1.07);
+  box-shadow:0 0 25px rgba(212,175,55,0.6);
 }
 
 /* SECTION */
 .section{
-  padding:80px 10%;
+  padding:100px 10%;
   text-align:center;
 }
 
-.section h2{
-  margin-bottom:10px;
-}
-
-.section p{
-  color:#aaa;
-}
-
-/* CARDS */
+/* GLASS CARD */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  margin-top:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:50px;
 }
 
 .card{
-  background:var(--card);
-  padding:30px;
+  background:var(--glass);
+  padding:35px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px);
+  transform:translateY(-12px) scale(1.02);
   border:1px solid var(--gold);
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
 /* FOOTER */
 footer{
-  padding:30px;
   text-align:center;
-  background:#000;
+  padding:40px;
   color:#777;
+  border-top:1px solid rgba(255,255,255,0.05);
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
   .hero h1{
-    font-size:2rem;
+    font-size:2.2rem;
   }
   nav{
     display:none;
@@ -176,7 +186,7 @@ footer{
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="XMINE Logo">
+    <img src="logo.png" alt="XMINE">
     <h2>XMINE</h2>
   </div>
 
@@ -189,15 +199,15 @@ footer{
 
 <section class="hero">
   <div>
-    <h1>Connecting <span>Seller</span> to <span>Buyer</span></h1>
-    <p>XMINE adalah platform profesional yang menghubungkan penjual dan pembeli secara langsung dengan sistem transparan, aman, dan efisien.</p>
+    <h1>Next Generation <span>Trading Platform</span></h1>
+    <p>Menghubungkan seller dan buyer secara langsung dengan sistem transparan, aman, dan berbasis teknologi modern.</p>
     <button class="btn">Mulai Sekarang</button>
   </div>
 </section>
 
 <section class="section" id="about">
-  <h2>Tentang Kami</h2>
-  <p>Kami menghadirkan solusi digital untuk mempermudah transaksi antara seller dan buyer dengan kepercayaan tinggi.</p>
+  <h2>Tentang XMINE</h2>
+  <p>Platform trading modern dengan keamanan tinggi dan transparansi penuh.</p>
 </section>
 
 <section class="section" id="services">
@@ -205,15 +215,15 @@ footer{
   <div class="cards">
     <div class="card">
       <h3>Direct Trading</h3>
-      <p>Transaksi langsung tanpa perantara.</p>
+      <p>Tanpa perantara, lebih cepat dan efisien.</p>
     </div>
     <div class="card">
       <h3>Secure System</h3>
-      <p>Sistem keamanan tingkat tinggi.</p>
+      <p>Teknologi enkripsi dan keamanan tinggi.</p>
     </div>
     <div class="card">
       <h3>Global Market</h3>
-      <p>Menjangkau pasar internasional.</p>
+      <p>Akses pasar internasional tanpa batas.</p>
     </div>
   </div>
 </section>
