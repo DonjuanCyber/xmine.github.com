@@ -228,15 +228,21 @@ header{
 <script>
 async function getGoldPrice(){
   try{
+    // API baru (lebih stabil)
     const goldRes = await fetch("https://api.gold-api.com/price/XAU");
     const goldData = await goldRes.json();
-    let goldUSD = goldData[0].price;
 
+    let goldUSD = goldData.price;
+
+    // Kurs USD → IDR
     const rateRes = await fetch("https://api.exchangerate-api.com/v4/latest/USD");
     const rateData = await rateRes.json();
     let usdToIdr = rateData.rates.IDR;
 
+    // Konversi ke IDR
     let goldIDR = goldUSD * usdToIdr;
+
+    // ounce → gram
     let perGram = goldIDR / 31.1035;
 
     let formatted = new Intl.NumberFormat("id-ID", {
@@ -255,7 +261,7 @@ async function getGoldPrice(){
 
 getGoldPrice();
 setInterval(getGoldPrice, 30000);
-</script>
+</script>>
 
 </body>
 </html>
