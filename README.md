@@ -1,2 +1,2 @@
 # xmine.github.com
-xmine
+https://donjuancyber.github.io/xmine.github.com
