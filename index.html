@@ -6,6 +6,7 @@
 
 <title>XMINE | Premium Trading Platform</title>
 <link rel="icon" href="favicon.ico">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -16,8 +17,8 @@
   --glass:rgba(255,255,255,0.05);
 }
 
+/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -40,7 +41,7 @@ header{
 /* MARQUEE */
 .marquee-bar{
   background:rgba(0,0,0,0.6);
-  padding:8px 0;
+  padding:6px 0;
   font-size:12px;
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
@@ -48,18 +49,18 @@ header{
 /* HERO */
 .hero{
   text-align:center;
-  padding:60px 20px 30px; /* lebih rapat */
+  padding:55px 20px 25px; /* RAPAT */
 }
 
 .hero-logo{
   width:130px;
-  margin-bottom:15px;
+  margin-bottom:12px;
   filter:drop-shadow(0 0 18px rgba(212,175,55,0.5));
 }
 
 .hero h1{
-  font-size:1.9rem;
-  margin-bottom:8px;
+  font-size:1.8rem;
+  margin-bottom:6px;
 }
 
 .hero span{color:var(--gold)}
@@ -67,7 +68,7 @@ header{
 .hero p{
   font-size:13px;
   color:#aaa;
-  margin-bottom:20px;
+  margin-bottom:18px;
 }
 
 /* BUTTON */
@@ -82,47 +83,56 @@ header{
   font-size:14px;
 }
 
-/* SECTION */
+/* SECTION SYSTEM (INI KUNCI RAPI) */
 .section{
-  padding:35px 5%; /* INI KUNCI (lebih rapat) */
+  padding:28px 5%; /* KONSISTEN */
   text-align:center;
 }
 
-#layanan{scroll-margin-top:70px}
+/* HAPUS JARAK ANTAR SECTION */
+.section + .section{
+  padding-top:10px;
+}
+
+/* LAYANAN */
+#layanan{
+  scroll-margin-top:70px;
+  padding-bottom:10px;
+}
 
 /* CARDS */
 .cards{
   display:grid;
-  gap:15px;
-  margin-top:20px;
+  gap:14px;
+  margin-top:16px;
 }
 
 .card{
   background:var(--glass);
-  padding:20px;
+  padding:18px;
   border-radius:14px;
   transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-3px);
   box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
 /* PRICE */
-.gold-live{margin-top:8px;font-size:13px;color:var(--gold)}
+.gold-live{margin-top:6px;font-size:13px;color:var(--gold)}
 .solar-live{margin-top:4px;font-size:13px;color:#4ade80}
 
-/* DISCLAIMER (rapat & elegan) */
+/* DISCLAIMER */
 .disclaimer-box{
   max-width:680px;
-  margin:20px auto 10px; /* DIPERKECIL */
+  margin:10px auto 0; /* SUPER RAPAT */
   text-align:left;
   line-height:1.6;
   font-size:13px;
   color:#ccc;
   background:rgba(255,255,255,0.03);
-  padding:20px;
+  padding:18px;
   border-radius:14px;
   border:1px solid rgba(212,175,55,0.15);
 }
@@ -130,19 +140,16 @@ header{
 /* DESKTOP */
 @media(min-width:768px){
 
-  .hero{padding:80px 20px 40px}
+  .hero{padding:80px 20px 35px}
 
   .hero h1{font-size:2.8rem}
-
   .hero-logo{width:180px}
+
+  .section{padding:40px 10%}
 
   .cards{
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
-  }
-
-  .section{
-    padding:50px 10%;
+    gap:18px;
   }
 
 }
@@ -164,8 +171,11 @@ header{
 
 <section class="hero">
   <img src="logo.png" class="hero-logo">
+
   <h1>XMINE from <span>Seller to Buyer</span></h1>
+
   <p>Menghubungkan seller dan buyer secara langsung dengan sistem transparan dan aman.</p>
+
   <a href="#layanan" class="btn">Mulai Sekarang</a>
 </section>
 
@@ -204,7 +214,7 @@ header{
     </p>
     <p>
       Seluruh transaksi dan risiko menjadi tanggung jawab masing-masing pihak.
-      Buyer wajib menunjukkan POF, dan seller bertanggung jawab atas legalitas produk.
+      Buyer wajib menunjukkan Proof of Funds (POF), dan seller bertanggung jawab atas legalitas produk.
     </p>
   </div>
 </section>
