@@ -6,7 +6,6 @@
 
 <title>XMINE | Premium Trading Platform</title>
 <link rel="icon" href="favicon.ico">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -17,7 +16,6 @@
   --glass:rgba(255,255,255,0.05);
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
 html{scroll-behavior:smooth}
 
@@ -30,32 +28,45 @@ body{
 header{
   display:flex;
   align-items:center;
-  padding:12px 5%;
-  background:rgba(0,0,0,0.5);
+  padding:10px 5%;
+  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(10px);
 }
 
 .logo{display:flex;align-items:center;gap:10px}
-.logo img{width:36px}
+.logo img{width:34px}
 
-/* MARQUEE */
-.marquee-bar{
-  background:rgba(0,0,0,0.6);
+/* TICKER (pengganti marquee, TANPA GAP) */
+.ticker{
+  overflow:hidden;
+  background:#000;
+  border-top:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.ticker-track{
+  display:inline-block;
+  white-space:nowrap;
+  animation:scroll 15s linear infinite;
   padding:6px 0;
   font-size:12px;
-  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+@keyframes scroll{
+  from{transform:translateX(100%)}
+  to{transform:translateX(-100%)}
 }
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:55px 20px 25px; /* RAPAT */
+  padding:30px 20px 20px; /* RAPAT FIX */
 }
 
 .hero-logo{
   width:130px;
   margin-bottom:12px;
-  filter:drop-shadow(0 0 18px rgba(212,175,55,0.5));
+  filter:drop-shadow(0 0 15px rgba(212,175,55,0.5));
 }
 
 .hero h1{
@@ -83,28 +94,21 @@ header{
   font-size:14px;
 }
 
-/* SECTION SYSTEM (INI KUNCI RAPI) */
+/* SECTION SYSTEM */
 .section{
-  padding:28px 5%; /* KONSISTEN */
+  padding:30px 5%;
   text-align:center;
 }
 
-/* HAPUS JARAK ANTAR SECTION */
 .section + .section{
-  padding-top:10px;
-}
-
-/* LAYANAN */
-#layanan{
-  scroll-margin-top:70px;
-  padding-bottom:10px;
+  padding-top:10px; /* hilangkan gap antar section */
 }
 
 /* CARDS */
 .cards{
   display:grid;
   gap:14px;
-  margin-top:16px;
+  margin-top:15px;
 }
 
 .card{
@@ -126,7 +130,7 @@ header{
 /* DISCLAIMER */
 .disclaimer-box{
   max-width:680px;
-  margin:10px auto 0; /* SUPER RAPAT */
+  margin:10px auto 0;
   text-align:left;
   line-height:1.6;
   font-size:13px;
@@ -139,19 +143,14 @@ header{
 
 /* DESKTOP */
 @media(min-width:768px){
-
-  .hero{padding:80px 20px 35px}
-
-  .hero h1{font-size:2.8rem}
+  .hero{padding:60px 20px 30px}
+  .hero h1{font-size:2.6rem}
   .hero-logo{width:180px}
-
   .section{padding:40px 10%}
 
   .cards{
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
   }
-
 }
 </style>
 </head>
@@ -165,17 +164,17 @@ header{
   </div>
 </header>
 
-<marquee direction="left" scrollamount="4" class="marquee-bar" id="marqueeText">
-  Loading data...
-</marquee>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerText">
+    Loading data...
+  </div>
+</div>
 
 <section class="hero">
   <img src="logo.png" class="hero-logo">
-
   <h1>XMINE from <span>Seller to Buyer</span></h1>
-
   <p>Menghubungkan seller dan buyer secara langsung dengan sistem transparan dan aman.</p>
-
   <a href="#layanan" class="btn">Mulai Sekarang</a>
 </section>
 
@@ -183,7 +182,6 @@ header{
   <h2>Layanan XMINE</h2>
 
   <div class="cards">
-
     <div class="card">
       <h3>Transaksi Seller</h3>
       <p>LM Logo & Non logo</p>
@@ -193,7 +191,7 @@ header{
 
     <div class="card">
       <h3>Mekanisme</h3>
-      <p>Buyer menunjukkan POF sebagai konfirmasi kesiapan transaksi.</p>
+      <p>Buyer menunjukkan Proof of Funds (POF) sebagai konfirmasi kesiapan transaksi.</p>
     </div>
 
     <div class="card">
@@ -201,21 +199,14 @@ header{
       <p class="gold-live">Harga emas: <span id="goldPrice">Loading...</span></p>
       <p class="solar-live">Harga solar: <span id="solarPrice">Loading...</span></p>
     </div>
-
   </div>
 </section>
 
 <section class="section">
   <div class="disclaimer-box">
     <h3>🔒 Disclaimer</h3>
-    <p>
-      Informasi bersifat informatif dan dapat berubah mengikuti kondisi pasar global.
-      Platform hanya sebagai fasilitator antara seller dan buyer.
-    </p>
-    <p>
-      Seluruh transaksi dan risiko menjadi tanggung jawab masing-masing pihak.
-      Buyer wajib menunjukkan Proof of Funds (POF), dan seller bertanggung jawab atas legalitas produk.
-    </p>
+    <p>Informasi bersifat informatif dan dapat berubah mengikuti kondisi pasar global. Platform hanya sebagai fasilitator antara seller dan buyer.</p>
+    <p>Seluruh transaksi dan risiko menjadi tanggung jawab masing-masing pihak. Buyer wajib menunjukkan POF, dan seller bertanggung jawab atas legalitas produk.</p>
   </div>
 </section>
 
@@ -230,7 +221,7 @@ async function getGoldPrice(){
     let f = new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(idr);
 
     goldPrice.innerText = f + " / gram";
-    marqueeText.innerText = "Harga Emas: " + f + " / gram | Solar: Rp 21.250 / liter";
+    tickerText.innerText = "Harga Emas: " + f + " / gram | Solar Industri: Rp 21.250 / liter";
 
   }catch{
     goldPrice.innerText="Error";
