@@ -1,19 +1,238 @@
 <!DOCTYPE html>
-    <a href="https://zoom.us/join" target="_blank" class="contact-btn zoom">Call via Zoom</a>
-    <a href="https://meet.google.com" target="_blank" class="contact-btn meet">Google Meet</a>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XMINE | Premium Trading Platform</title>
+<link rel="icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #d4af37;
+  --gold-soft: #f5deb3;
+  --dark: #05070d;
+  --navy: #0f172a;
+  --glass: rgba(255,255,255,0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, var(--dark), var(--navy));
+  color: white;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 7%;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212,175,55,.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img { width: 42px; }
+.logo h2 {
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.contact-btn {
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.whatsapp { background: #25D366; }
+.zoom { background: #0B5CFF; }
+.meet { background: #34A853; }
+
+.contact-btn:hover {
+  transform: translateY(-4px);
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-logo {
+  width: 170px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  margin-top: 15px;
+  max-width: 700px;
+  color: #d6d6d6;
+}
+
+.btn-main {
+  margin-top: 25px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  background: linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.section {
+  padding: 70px 8%;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--glass);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,.04);
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 12px;
+}
+
+.contact-form button {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.disclaimer-box {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255,255,255,.04);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(212,175,55,.15);
+}
+
+.disclaimer-box h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.disclaimer-box p {
+  color: #d6d6d6;
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+
+@media (max-width:768px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="XMINE">
+    <h2>XMINE</h2>
+  </div>
+
+  <div class="contact-actions">
+    <a href="https://wa.me/6287885185024?text=Halo%20XMINE%2C%20saya%20tertarik%20dengan%20layanan%20Anda" target="_blank" class="contact-btn whatsapp">WhatsApp</a>
+    <a href="https://zoom.us/join" target="_blank" class="contact-btn zoom">Zoom</a>
+    <a href="https://meet.google.com/new" target="_blank" class="contact-btn meet">Google Meet</a>
   </div>
 </header>
 
 <section class="hero">
   <img src="logo.png" class="hero-logo" alt="XMINE">
-  <h1>Premium Trading Connection <span>Seller to Buyer</span></h1>
+  <h1>Premium Trading <span>Seller to Buyer</span></h1>
   <p>
-    XMINE menghadirkan pengalaman transaksi premium dengan tampilan profesional, transparan, aman, dan eksklusif untuk seller maupun buyer global.
+    XMINE menghadirkan pengalaman transaksi premium dengan sistem aman, transparan, dan profesional.
   </p>
-  <a href="#services" class="btn-main">Mulai Konsultasi</a>
+  <a href="#contact" class="btn-main">Mulai Konsultasi</a>
 </section>
 
-<section class="section" id="services">
+<section class="section">
   <h2 class="section-title">Layanan Premium XMINE</h2>
   <div class="cards">
     <div class="card">
@@ -22,53 +241,39 @@
     </div>
     <div class="card">
       <h3>Secure Transaction</h3>
-      <p>Buyer wajib menunjukkan Proof of Funds (POF) untuk validasi transaksi.</p>
+      <p>Proof of Funds (POF) untuk validasi transaksi buyer.</p>
     </div>
     <div class="card">
-      <h3>Global Market Access</h3>
-      <p>Monitoring harga pasar dan koneksi seller-buyer lintas negara.</p>
+      <h3>Global Market</h3>
+      <p>Koneksi seller dan buyer lintas negara.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="contact">
   <h2 class="section-title">Hubungi XMINE</h2>
-  <div style="max-width:700px;margin:auto;background:rgba(255,255,255,.04);padding:30px;border-radius:20px;border:1px solid rgba(212,175,55,.15);backdrop-filter:blur(14px);">
+  <div class="contact-form">
     <form action="https://formsubmit.co/xminetrader@gmail.com" method="POST">
-      <input type="text" name="Nama" placeholder="Nama Lengkap" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;">
-      <input type="email" name="Email" placeholder="Email Aktif" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;">
-      <input type="text" name="Nomor" placeholder="Nomor WhatsApp" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;">
-      <textarea name="Pesan" placeholder="Tulis kebutuhan Anda..." rows="5" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;"></textarea>
+      <input type="text" name="Nama" placeholder="Nama Lengkap" required>
+      <input type="email" name="Email" placeholder="Email Aktif" required>
+      <input type="text" name="Nomor" placeholder="Nomor WhatsApp" required>
+      <textarea name="Pesan" rows="5" placeholder="Tulis kebutuhan Anda..." required></textarea>
+
       <input type="hidden" name="_subject" value="Client Baru dari Website XMINE">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <button type="submit" class="btn-main">Kirim ke Email XMINE</button>
+
+      <button type="submit" class="btn-main">Kirim Inquiry</button>
     </form>
   </div>
 </section>
 
 <section class="section">
-  <div class="live-market">
-    <h3>Market Information</h3>
-    <p>Harga emas & solar diperbarui secara berkala mengikuti pasar global.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div style="max-width:900px;margin:auto;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.15);backdrop-filter:blur(14px);padding:30px;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,.25);">
-    <h3 style="color:var(--gold);margin-bottom:15px;font-size:1.4rem;">🔒 Disclaimer</h3>
-    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;">
-      Informasi yang ditampilkan pada platform XMINE bersifat informatif dan dapat berubah mengikuti kondisi pasar global.
-    </p>
-    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;margin-top:12px;">
-      XMINE bertindak sebagai fasilitator yang menghubungkan seller dan buyer secara langsung tanpa menjadi pihak dalam transaksi utama.
-    </p>
-    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;margin-top:12px;">
-      Setiap transaksi, verifikasi legalitas produk, validasi Proof of Funds (POF), serta seluruh risiko bisnis menjadi tanggung jawab masing-masing pihak sesuai kesepakatan bersama.
-    </p>
-    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;margin-top:12px;">
-      XMINE tidak bertanggung jawab atas kerugian yang timbul akibat kelalaian, misinformasi, atau wanprestasi dari pihak seller maupun buyer.
-    </p>
+  <div class="disclaimer-box">
+    <h3>🔒 Disclaimer</h3>
+    <p>Informasi di XMINE bersifat informatif dan dapat berubah sesuai pasar global.</p>
+    <p>XMINE hanya sebagai fasilitator antara seller dan buyer.</p>
+    <p>Seluruh transaksi dan risiko menjadi tanggung jawab masing-masing pihak.</p>
   </div>
 </section>
 
