@@ -1,331 +1,80 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>XMINE | Premium Trading Platform</title>
-<link rel="icon" href="favicon.ico">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --gold:#d4af37;
-  --bg1:#0b1220;
-  --bg2:#000;
-  --glass:rgba(255,255,255,0.05);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-html{scroll-behavior:smooth}
-
-body{
-  background: radial-gradient(circle at top,var(--bg1),var(--bg2));
-  color:#fff;
-}
-
-/* HEADER */
-header{
-  display:flex;
-  align-items:center;
-  padding:10px 5%;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(10px);
-}
-
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{width:34px}
-
-/* TICKER (pengganti marquee, TANPA GAP) */
-.ticker{
-  overflow:hidden;
-  background:#000;
-  border-top:1px solid rgba(255,255,255,0.05);
-  border-bottom:1px solid rgba(255,255,255,0.05);
-}
-
-.ticker-track{
-  display:inline-block;
-  white-space:nowrap;
-  animation:scroll 15s linear infinite;
-  padding:6px 0;
-  font-size:12px;
-}
-
-@keyframes scroll{
-  from{transform:translateX(100%)}
-  to{transform:translateX(-100%)}
-}
-
-/* WA FLOAT */
-.wa-float{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:#25D366;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 8px 25px rgba(0,0,0,0.4);
-  z-index:999;
-  transition:0.3s;
-  opacity:0;
-  transform:translateY(20px);
-}
-
-/* ICON */
-.wa-float img{
-  width:28px;
-}
-
-/* HOVER */
-.wa-float:hover{
-  transform:scale(1.1);
-}
-
-/* TOOLTIP */
-.wa-text{
-  position:absolute;
-  right:65px;
-  background:#000;
-  padding:6px 12px;
-  border-radius:6px;
-  font-size:12px;
-  opacity:0;
-  transition:0.3s;
-  white-space:nowrap;
-}
-
-.wa-float:hover .wa-text{
-  opacity:1;
-}
-
-/* ANIMASI HALUS (pulse) */
-@keyframes waPulse{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
-  70%{box-shadow:0 0 0 12px rgba(37,211,102,0);}
-  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
-}
-
-.wa-float.active{
-  opacity:1;
-  transform:translateY(0);
-  animation:waPulse 2s infinite;
-}
-
-/* HERO */
-.hero{
-  text-align:center;
-  padding:30px 20px 20px; /* RAPAT FIX */
-}
-
-.hero-logo{
-  width:130px;
-  margin-bottom:12px;
-  filter:drop-shadow(0 0 15px rgba(212,175,55,0.5));
-}
-
-.hero h1{
-  font-size:1.8rem;
-  margin-bottom:6px;
-}
-
-.hero span{color:var(--gold)}
-
-.hero p{
-  font-size:13px;
-  color:#aaa;
-  margin-bottom:18px;
-}
-
-/* BUTTON */
-.btn{
-  display:inline-block;
-  padding:10px 22px;
-  border-radius:30px;
-  background:linear-gradient(135deg,var(--gold),#fff2b0);
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-  font-size:14px;
-}
-
-/* SECTION SYSTEM */
-.section{
-  padding:30px 5%;
-  text-align:center;
-}
-
-.section + .section{
-  padding-top:10px; /* hilangkan gap antar section */
-}
-
-/* CARDS */
-.cards{
-  display:grid;
-  gap:14px;
-  margin-top:15px;
-}
-
-.card{
-  background:var(--glass);
-  padding:18px;
-  border-radius:14px;
-  transition:.3s;
-}
-
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px rgba(0,0,0,0.4);
-}
-
-/* PRICE */
-.gold-live{margin-top:6px;font-size:13px;color:var(--gold)}
-.solar-live{margin-top:4px;font-size:13px;color:#4ade80}
-
-/* DISCLAIMER */
-.disclaimer-box{
-  max-width:680px;
-  margin:10px auto 0;
-  text-align:left;
-  line-height:1.6;
-  font-size:13px;
-  color:#ccc;
-  background:rgba(255,255,255,0.03);
-  padding:18px;
-  border-radius:14px;
-  border:1px solid rgba(212,175,55,0.15);
-}
-
-/* DESKTOP */
-@media(min-width:768px){
-  .hero{padding:60px 20px 30px}
-  .hero h1{font-size:2.6rem}
-  .hero-logo{width:180px}
-  .section{padding:40px 10%}
-
-  .cards{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-</style>
-</head>
-
-<body>
-<a id="waBtn" href="#" target="_blank" class="wa-float">
-  <span class="wa-text">Butuh bantuan? Chat sekarang</span>
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-</a>
-<header>
-  <div class="logo">
-    <img src="logo.png">
-    <h2>XMINE</h2>
+    <a href="https://zoom.us/join" target="_blank" class="contact-btn zoom">Call via Zoom</a>
+    <a href="https://meet.google.com" target="_blank" class="contact-btn meet">Google Meet</a>
   </div>
 </header>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track" id="tickerText">
-    Loading data...
-  </div>
-</div>
-
 <section class="hero">
-  <img src="logo.png" class="hero-logo">
-  <h1>XMINE from <span>Seller to Buyer</span></h1>
-  <p>Menghubungkan seller dan buyer secara langsung dengan sistem transparan dan aman.</p>
-  <a href="#layanan" class="btn">Mulai Sekarang</a>
+  <img src="logo.png" class="hero-logo" alt="XMINE">
+  <h1>Premium Trading Connection <span>Seller to Buyer</span></h1>
+  <p>
+    XMINE menghadirkan pengalaman transaksi premium dengan tampilan profesional, transparan, aman, dan eksklusif untuk seller maupun buyer global.
+  </p>
+  <a href="#services" class="btn-main">Mulai Konsultasi</a>
 </section>
 
-<section class="section" id="layanan">
-  <h2>Layanan XMINE</h2>
-
+<section class="section" id="services">
+  <h2 class="section-title">Layanan Premium XMINE</h2>
   <div class="cards">
     <div class="card">
-      <h3>💰 Transaksi Seller</h3>
-      <p>LM Logo & Non logo</p>
-      <p>Solar industri</p>
-      <p>Silica Sand</p>
-  <a href="#" class="btn">Detail</a>
+      <h3>Gold & Commodity</h3>
+      <p>LM Logo, Non Logo, Solar Industri, Silica Sand.</p>
     </div>
-
     <div class="card">
-      <h3>⚙️ Mekanisme</h3>
-      <p>Buyer menunjukkan Proof of Funds (POF) sebagai konfirmasi kesiapan transaksi.</p>
-<a href="#" class="btn">Detail</a>
+      <h3>Secure Transaction</h3>
+      <p>Buyer wajib menunjukkan Proof of Funds (POF) untuk validasi transaksi.</p>
     </div>
-
     <div class="card">
-      <h3>🌍 Global Market</h3>
-      <p class="gold-live">Harga emas: <span id="goldPrice">Loading...</span></p>
-      <p class="solar-live">Harga solar: <span id="solarPrice">Loading...</span></p>
-<a href="#" class="btn">Detail</a>
+      <h3>Global Market Access</h3>
+      <p>Monitoring harga pasar dan koneksi seller-buyer lintas negara.</p>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="disclaimer-box">
-    <h3>🔒 Disclaimer</h3>
-    <p>Informasi bersifat informatif dan dapat berubah mengikuti kondisi pasar global. Platform hanya sebagai fasilitator antara seller dan buyer.</p>
-    <p>Seluruh transaksi dan risiko menjadi tanggung jawab masing-masing pihak. Buyer wajib menunjukkan POF, dan seller bertanggung jawab atas legalitas produk.</p>
+  <h2 class="section-title">Hubungi XMINE</h2>
+  <div style="max-width:700px;margin:auto;background:rgba(255,255,255,.04);padding:30px;border-radius:20px;border:1px solid rgba(212,175,55,.15);backdrop-filter:blur(14px);">
+    <form action="https://formsubmit.co/xminetrader@gmail.com" method="POST">
+      <input type="text" name="Nama" placeholder="Nama Lengkap" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;">
+      <input type="email" name="Email" placeholder="Email Aktif" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;">
+      <input type="text" name="Nomor" placeholder="Nomor WhatsApp" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;">
+      <textarea name="Pesan" placeholder="Tulis kebutuhan Anda..." rows="5" required style="width:100%;padding:14px;margin-bottom:15px;border:none;border-radius:12px;outline:none;"></textarea>
+      <input type="hidden" name="_subject" value="Client Baru dari Website XMINE">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <button type="submit" class="btn-main">Kirim ke Email XMINE</button>
+    </form>
   </div>
 </section>
 
-<script>
-async function getGoldPrice(){
-  try{
-    const g = await fetch("https://api.gold-api.com/price/XAU").then(r=>r.json());
-    const r = await fetch("https://api.exchangerate-api.com/v4/latest/USD").then(r=>r.json());
+<section class="section">
+  <div class="live-market">
+    <h3>Market Information</h3>
+    <p>Harga emas & solar diperbarui secara berkala mengikuti pasar global.</p>
+  </div>
+</section>
 
-    let idr = (g.price * r.rates.IDR)/31.1035;
+<section class="section">
+  <div style="max-width:900px;margin:auto;background:rgba(255,255,255,.04);border:1px solid rgba(212,175,55,.15);backdrop-filter:blur(14px);padding:30px;border-radius:20px;box-shadow:0 15px 35px rgba(0,0,0,.25);">
+    <h3 style="color:var(--gold);margin-bottom:15px;font-size:1.4rem;">🔒 Disclaimer</h3>
+    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;">
+      Informasi yang ditampilkan pada platform XMINE bersifat informatif dan dapat berubah mengikuti kondisi pasar global.
+    </p>
+    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;margin-top:12px;">
+      XMINE bertindak sebagai fasilitator yang menghubungkan seller dan buyer secara langsung tanpa menjadi pihak dalam transaksi utama.
+    </p>
+    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;margin-top:12px;">
+      Setiap transaksi, verifikasi legalitas produk, validasi Proof of Funds (POF), serta seluruh risiko bisnis menjadi tanggung jawab masing-masing pihak sesuai kesepakatan bersama.
+    </p>
+    <p style="color:#d6d6d6;line-height:1.9;font-size:14px;margin-top:12px;">
+      XMINE tidak bertanggung jawab atas kerugian yang timbul akibat kelalaian, misinformasi, atau wanprestasi dari pihak seller maupun buyer.
+    </p>
+  </div>
+</section>
 
-    let f = new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(idr);
+<footer>
+  © 2026 XMINE — Premium Trading Platform
+</footer>
 
-    goldPrice.innerText = f + " / gram";
-    tickerText.innerText = "Harga Emas: " + f + " / gram | Solar Industri: Rp 21.250 / liter";
-
-  }catch{
-    goldPrice.innerText="Error";
-  }
-}
-
-function setSolar(){
-  solarPrice.innerText="Rp 21.250 / liter";
-}
-
-getGoldPrice();
-setSolar();
-setInterval(getGoldPrice,30000);
-</script>
-<script>
-// ⚙️ CONFIG
-const phone = "+6287885185024"; // ganti nomor kamu
-const message = "Halo, saya tertarik dengan layanan XMINE. Mohon info lebih lanjut.";
-
-// encode pesan
-const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-document.getElementById("waBtn").href = waLink;
-
-// 🔥 DELAY MUNCUL (3 detik)
-setTimeout(()=>{
-  document.getElementById("waBtn").classList.add("active");
-},3000);
-
-// 🔥 HANYA MUNCUL SETELAH SCROLL
-window.addEventListener("scroll",()=>{
-  let btn = document.getElementById("waBtn");
-
-  if(window.scrollY > 150){
-    btn.style.display = "flex";
-  }else{
-    btn.style.display = "none";
-  }
-});
-</script>
 </body>
-
 </html>
